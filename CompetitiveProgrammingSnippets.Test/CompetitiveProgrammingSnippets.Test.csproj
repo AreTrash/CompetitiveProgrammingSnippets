@@ -62,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\BasicDataStructure\PriorityQueueTest.cs" />
-    <Compile Include="Algorithm\Math\MathXTest.cs" />
+    <Compile Include="Algorithm\MathX\MathXTest.cs" />
     <Compile Include="Algorithm\ShortestPath\DijkstraTest.cs" />
     <Compile Include="Basic\MainTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

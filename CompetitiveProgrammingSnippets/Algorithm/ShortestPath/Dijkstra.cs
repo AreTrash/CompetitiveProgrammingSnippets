@@ -8,7 +8,7 @@ namespace Algorithm.ShortestPath
 
     //参考: プログラミングコンテストチャレンジブック（蟻本）P.97
     //$dijk
-    //@Dijkstra O((V+E)LogV)
+    //@Dijkstra O((V+E)LogV) dependency: pq
     public class Dijkstra
     {
         public struct Edge
