@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>mathX</Title>
+      <Shortcut>mathX</Shortcut>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>int</ID>
+          <Default>int</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[    public static class MathX
+    {
+        public static void Swap<T>(ref T left, ref T right)
+        {
+            var tmp = left;
+            left = right;
+            right = tmp;
+        }
+        public static $int$ Gcd($int$ x, $int$ y)
+        {
+            return y == 0 ? x : Gcd(y, x % y);
+        }
+        public static $int$ Lcm($int$ x, $int$ y)
+        {
+            return x * (y / Gcd(x, y));
+        }
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

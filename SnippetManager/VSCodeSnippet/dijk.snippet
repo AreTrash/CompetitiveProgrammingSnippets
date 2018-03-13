@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>dijk</Title>
+      <Shortcut>dijk</Shortcut>
+      <Description>Dijkstra O((V+E)LogV)</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>int</ID>
+          <Default>int</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[    public class Dijkstra
+    {
+        public struct Edge
+        {
+            public int To;
+            public $int$ Cost;
+        }
+
+        public struct Node : IComparable<Node>
+        {
+            public int Id;
+            public $int$ Cost;
+
+            public int CompareTo(Node other)
+            {
+                return Math.Sign(this.Cost - other.Cost);
+            }
+        }
+
+        readonly List<Edge>[] adjacencyList;
+
+        public Dijkstra(int v)
+        {
+            adjacencyList = new List<Edge>[v];
+            for (var i = 0; i < v; i++) adjacencyList[i] = new List<Edge>();
+        }
+
+        public void AddDirectedEdge(int from, int to, $int$ cost)
+        {
+            adjacencyList[from].Add(new Edge { To = to, Cost = cost });
+        }
+
+        public void AddUndirectedEdge(int v1, int v2, $int$ cost)
+        {
+            AddDirectedEdge(v1, v2, cost);
+            AddDirectedEdge(v2, v1, cost);
+        }
+
+        public $int$[] GetDistances(int start)
+        {
+            var v = adjacencyList.Length;
+            var dist = new $int$[v];
+
+            for (var i = 0; i < v; i++) dist[i] = $int$.MaxValue;
+            dist[start] = 0;
+
+            var pq = new PriorityQueue<Node>();
+            pq.Enqueue(new Node{Id = start, Cost = 0});
+
+            while (pq.Count > 0)
+            {
+                var node = pq.Dequeue();
+                var from = node.Id;
+
+                foreach (var edge in adjacencyList[from])
+                {
+                    var to = edge.To;
+                    var cost = node.Cost + edge.Cost;
+
+                    if (dist[to] <= cost) continue;
+                    dist[to] = cost;
+                    pq.Enqueue(new Node{Id = to, Cost = cost});
+                }
+            }
+
+            return dist;
+        }
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

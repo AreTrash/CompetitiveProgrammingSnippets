@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>dijkMat</Title>
+      <Shortcut>dijkMat</Shortcut>
+      <Description>DijkstraUsedMatrix O(V^2)</Description>
+      <SnippetTypes>
+        <SnippetType>Expansion</SnippetType>
+      </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>int</ID>
+          <Default>int</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp"><![CDATA[    public class DijkstraUsedMatrix
+    {
+        readonly $int$[,] costMatrix;
+
+        public DijkstraUsedMatrix(int v)
+        {
+            costMatrix = new $int$[v, v];
+
+            for (var i = 0; i < v; i++)
+            {
+                for (var j = 0; j < v; j++)
+                {
+                    costMatrix[i, j] = $int$.MaxValue;
+                }
+            }
+        }
+
+        public void AddDirectedEdge(int from, int to, $int$ cost)
+        {
+            costMatrix[from, to] = cost;
+        }
+
+        public void AddUndirectedEdge(int v1, int v2, $int$ cost)
+        {
+            AddDirectedEdge(v1, v2, cost);
+            AddDirectedEdge(v2, v1, cost);
+        }
+
+        public $int$[] GetDistances(int start)
+        {
+            var v = costMatrix.GetLength(0);
+            var willUse = new HashSet<int>(Enumerable.Range(0, v));
+            var dist = new $int$[v];
+
+            for (var i = 0; i < v; i++) dist[i] = $int$.MaxValue;
+            dist[start] = 0;
+
+            while (willUse.Count > 0)
+            {
+                var min = willUse.Min(wu => dist[wu]);
+                var from = willUse.First(wu => dist[wu] == min);
+                willUse.Remove(from);
+
+                for (var to = 0; to < v; to++)
+                {
+                    if (costMatrix[from, to] == $int$.MaxValue) continue;
+                    dist[to] = Math.Min(dist[to], dist[from] + costMatrix[from, to]);
+                }
+            }
+
+            return dist;
+        }
+    }]]></Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
