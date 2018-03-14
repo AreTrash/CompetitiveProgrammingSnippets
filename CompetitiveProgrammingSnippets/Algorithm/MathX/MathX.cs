@@ -4,13 +4,14 @@ using Algorithm.BasicDataStructure;
 namespace Algorithm.MathX
 {
     using __int__ = Int32;
+    using __long__ = Int64;
 
-    //$mathX
+    //$mathx
     public static partial class MathX
     {
         /*$END$*/
     }
-    //$mathX
+    //$mathx
 
     public static partial class MathX
     {
@@ -38,7 +39,7 @@ namespace Algorithm.MathX
         //$lcm
         //$gcdex
         //@拡張ユークリッドの互除法 (a > 0 && b > 0)
-        public static __int__ GcdEx(__int__ a, __int__ b, out __int__ x, out __int__ y)
+        public static __long__ GcdEx(__long__ a, __long__ b, out __long__ x, out __long__ y)
         {
             if (b == 0)
             {
@@ -47,8 +48,7 @@ namespace Algorithm.MathX
                 return a;
             }
 
-            __int__ tx;
-            __int__ ty;
+            __long__ tx, ty;
             var gcd = GcdEx(b, a % b, out tx, out ty);
 
             x = ty;
@@ -58,7 +58,7 @@ namespace Algorithm.MathX
         //$gcdex
         //$gcdexf
         //@拡張ユークリッドの互除法タプル利用 (a > 0 && b > 0)
-        public static (__int__ gcd, __int__ x, __int__ y) GcdEx(__int__ a, __int__ b)
+        public static (__long__ gcd, __long__ x, __long__ y) GcdEx(__long__ a, __long__ b)
         {
             if (b == 0) return (a, 1, 0);
             var (gcd, x, y) = GcdEx(b, a % b);

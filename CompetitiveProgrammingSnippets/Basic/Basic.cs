@@ -2,6 +2,9 @@
 using System.IO;
 using __PROJECT__;
 
+#pragma warning disable CS0219
+#pragma warning disable CS0414
+
 namespace Basic
 {
     using __int__ = Int32;
