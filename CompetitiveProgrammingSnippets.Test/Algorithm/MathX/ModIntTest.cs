@@ -43,7 +43,6 @@ namespace Algorithm.MathX
         void Add()
         {
             Assert.Equal(7, ((ModInt)3 + 4).Value);
-            Assert.Equal(1000000006, ((ModInt)1000000000 + 6).Value);
             Assert.Equal(0, ((ModInt)1000000000 + 7).Value);
             Assert.Equal(1, ((ModInt)1000000000 + 8).Value);
         }
