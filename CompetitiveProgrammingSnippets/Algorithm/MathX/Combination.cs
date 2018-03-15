@@ -15,24 +15,24 @@
             for (var i = 1; i <= max; i++) facts[i] = facts[i - 1] * i;
         }
 
-        ModInt Fact(int n)
+        public ModInt Fact(int n)
         {
             return facts[n];
         }
 
-        ModInt NCK(int n, int k)
+        public ModInt NCK(int n, int k)
         {
             if (n < k) return 0;
             return facts[n] / facts[k] / facts[n - k];
         }
 
-        ModInt NPK(int n, int k)
+        public ModInt NPK(int n, int k)
         {
             if (n < k) return 0;
             return facts[n] / facts[n - k];
         }
 
-        ModInt NHK(int n, int k)
+        public ModInt NHK(int n, int k)
         {
             if (k == 0) return 1;
             if (n == 0) return 0;
