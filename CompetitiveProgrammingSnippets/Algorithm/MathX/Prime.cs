@@ -43,6 +43,12 @@ namespace Algorithm.MathX
             }
             if (n != 1) yield return n;
         }
+        //$totient
+        public __int__ EulersTotient(__int__ n)
+        {
+            return Factorize(n).Distinct().Aggregate(n, (ret, x) => ret / x * (x - 1));
+        }
+        //$totient
     }
     //$prime
 }

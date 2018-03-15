@@ -64,5 +64,17 @@ namespace Algorithm.MathX
             //n <= max ^ 2 じゃないと駄目
             Assert.Equal(new[] {10201}, prime.Factorize(101 * 101));
         }
+
+        [Fact]
+        void EulersTotient()
+        {
+            Assert.Equal(1, prime.EulersTotient(1));
+            Assert.Equal(1, prime.EulersTotient(2));
+            Assert.Equal(2, prime.EulersTotient(3));
+
+            Assert.Equal(8, prime.EulersTotient(16));
+            Assert.Equal(12, prime.EulersTotient(36));
+            Assert.Equal(100, prime.EulersTotient(101));
+        }
     }
 }
