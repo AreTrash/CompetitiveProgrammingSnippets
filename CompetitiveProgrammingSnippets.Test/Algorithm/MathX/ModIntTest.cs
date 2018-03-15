@@ -87,8 +87,17 @@ namespace Algorithm.MathX
         void Pow()
         {
             Assert.Equal(10, ((ModInt)3).Pow(3).Value);
-            Assert.Equal(12, ((ModInt)10).Pow(15).Value);
-            Assert.Equal(0, ((ModInt)0).Pow(15).Value);
+            Assert.Equal(16, ((ModInt)2).Pow(100).Value);
+            Assert.Equal(1, ((ModInt)2).Pow(1000).Value);
+            Assert.Equal(1, ((ModInt)2).Pow(16).Value);
+
+            Assert.Equal(0, ((ModInt)0).Pow(999).Value);
+            Assert.Equal(1, ((ModInt)999).Pow(0).Value);
+
+            Assert.Equal(0, ((ModInt)0).Pow(16).Value);
+            Assert.Equal(1, ((ModInt)17).Pow(0).Value);
+
+            Assert.Equal(1, ((ModInt)0).Pow(0).Value);
         }
 
         public void Dispose()
