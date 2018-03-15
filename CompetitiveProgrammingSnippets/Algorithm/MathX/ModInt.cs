@@ -24,8 +24,21 @@ namespace Algorithm.MathX
     //繰り返し二乗法
     //http://satanic0258.hatenablog.com/entry/2016/04/29/004730 ‎@satanic0258さん
 
+    //逆元、拡張ユークリッドの互除法使うやつ dependency: mathx, gcdex
+    /*
+    ModInt GetInverse()
+    {
+       int x, y;
+       if (MathX.GcdEx(Value, Mod, out x, out y) != 1)
+       {
+           throw new InvalidOperationException("'Value' and 'Mod' must be disjoint.");
+       }
+       return x;
+    }
+    */
+
     //$modint
-    //@ModInt Modは素数推奨 dependency: mathx, gcdex
+    //@ModInt Modは素数推奨
     public struct ModInt
     {
         public static int Mod = 1000000007;
@@ -42,12 +55,8 @@ namespace Algorithm.MathX
 
         ModInt GetInverse()
         {
-            int x, y;
-            if (MathX.GcdEx(Value, Mod, out x, out y) != 1)
-            {
-                throw new InvalidOperationException("'Value' and 'Mod' must be disjoint.");
-            }
-            return x;
+            if (value == 0) throw new InvalidOperationException("value must NOT equal 0");
+            return Pow(Mod - 2);
         }
 
         public ModInt Square()
