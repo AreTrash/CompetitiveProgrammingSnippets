@@ -65,6 +65,7 @@
     <Compile Include="Algorithm\MathX\CombinationTest.cs" />
     <Compile Include="Algorithm\MathX\MathXTest.cs" />
     <Compile Include="Algorithm\MathX\ModIntTest.cs" />
+    <Compile Include="Algorithm\MathX\PrimeTest.cs" />
     <Compile Include="Algorithm\ShortestPath\DijkstraTest.cs" />
     <Compile Include="Basic\MainTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
