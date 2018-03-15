@@ -4,7 +4,7 @@
     //maxは10^6 ~ 10^7ぐらいが限度
 
     //$comb
-    //@Combination n!, nCk, nPk, nHk (n + k <= max) dependency: modint
+    //@Combination n!, nCk, nPk, nHk (0 <= n, k && n + k <= max) dependency: modint
     public class Combination
     {
         readonly ModInt[] facts;
