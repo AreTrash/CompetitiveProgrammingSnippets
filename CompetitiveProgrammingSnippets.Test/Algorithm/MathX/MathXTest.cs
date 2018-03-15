@@ -36,6 +36,8 @@ namespace Algorithm.MathX
             Assert.Equal(36, MathX.Lcm(12, 18));
             Assert.Equal(36, MathX.Lcm(18, 12));
 
+            Assert.Throws<OverflowException>(() => MathX.Lcm(1000000007, 1000000009));
+
             //0以下は未定義
             Assert.Equal(0, MathX.Lcm(0, 114));
             Assert.Equal(0, MathX.Lcm(514, 0));

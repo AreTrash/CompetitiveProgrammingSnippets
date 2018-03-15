@@ -34,7 +34,7 @@ namespace Algorithm.MathX
         //$gcd
         public static __int__ Lcm(__int__ a, __int__ b)
         {
-            return a * (b / Gcd(a, b));
+            return checked(a * (b / Gcd(a, b)));
         }
         //$lcm
         //$gcdex
