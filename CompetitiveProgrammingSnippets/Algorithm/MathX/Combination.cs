@@ -12,6 +12,7 @@
         public Combination(int max)
         {
             facts = new ModInt[max + 1];
+            facts[0] = 1;
             for (var i = 1; i <= max; i++) facts[i] = facts[i - 1] * i;
         }
 
