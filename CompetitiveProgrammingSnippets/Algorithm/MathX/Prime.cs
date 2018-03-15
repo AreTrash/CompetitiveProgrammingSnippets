@@ -7,7 +7,7 @@ namespace Algorithm.MathX
     using __int__ = Int32;
 
     //$prime
-    //@Prime 素数列挙(2 ~ max), 素数判定(n <= max ^ 2), 因数分解(1 <= n <= max ^ 2)
+    //@Prime 素数列挙(2 ~ max), 素数判定(n <= max ^ 2), 素因数分解(1 <= n <= max ^ 2)
     public class Prime
     {
         readonly List<__int__> primes;
