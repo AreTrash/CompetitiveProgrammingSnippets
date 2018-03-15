@@ -4,16 +4,10 @@ namespace Algorithm.MathX
 {
     public class CombinationTest
     {
-        readonly Combination comb;
-
-        public CombinationTest()
-        {
-            this.comb = new Combination(200);
-        }
-
         [Fact]
         void Fact()
         {
+            var comb = new Combination(200);
             Assert.Equal(1, comb.Fact(0));
             Assert.Equal(1, comb.Fact(1));
             Assert.Equal(2, comb.Fact(2));
@@ -24,6 +18,8 @@ namespace Algorithm.MathX
         [Fact]
         void NCK()
         {
+            var comb = new Combination(200);
+            Assert.Equal(1, comb.NCK(0, 0));
             Assert.Equal(0, comb.NCK(0, 1));
             Assert.Equal(1, comb.NCK(1, 0));
             Assert.Equal(1, comb.NCK(1, 1));
@@ -42,6 +38,8 @@ namespace Algorithm.MathX
         [Fact]
         void NPK()
         {
+            var comb = new Combination(200);
+            Assert.Equal(1, comb.NPK(0, 0));
             Assert.Equal(0, comb.NPK(0, 1));
             Assert.Equal(1, comb.NPK(1, 0));
             Assert.Equal(1, comb.NPK(1, 1));
@@ -60,6 +58,8 @@ namespace Algorithm.MathX
         [Fact]
         void NHK()
         {
+            var comb = new Combination(200);
+            Assert.Equal(1, comb.NHK(0, 0));
             Assert.Equal(0, comb.NHK(0, 1));
             Assert.Equal(1, comb.NHK(1, 0));
             Assert.Equal(1, comb.NHK(1, 1));
