@@ -23,9 +23,6 @@ namespace __PROJECT__
         }
 
         static readonly Func<string, string> String = s => s;
-        static readonly Func<string, int> Int = int.Parse;
-        static readonly Func<string, long> Long = long.Parse;
-        static readonly Func<string, double> Double = double.Parse;
     }
 
     public class StreamScanner

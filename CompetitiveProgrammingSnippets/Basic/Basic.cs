@@ -13,67 +13,67 @@ namespace Basic
     {
         void StreamScanner()
         {
-            Func<string, int> __Int__ = int.Parse;
+            Func<string, string> String = s => s;
             var __X__ = 0;
             var __Y__ = 0;
 
             var ss = new StreamScanner(new StreamReader(Console.OpenStandardInput()));
-            //$ssn
-            ss.Next(__Int__)
-            //$ssn
+            //$sss
+            ss.Next(String)
+            //$sss
             ;
-            //$ssn1
-            ss.Next(__Int__, __X__)
-            //$ssn1
+            //$sss1
+            ss.Next(String, __X__)
+            //$sss1
             ;
-            //$ssn2
-            ss.Next(__Int__, __X__, __Y__)
-            //$ssn2
+            //$sss2
+            ss.Next(String, __X__, __Y__)
+            //$sss2
             ;
 
-            //$ssp
+            //$ssn
             ss.Next(__int__.Parse)
-            //$ssp
+            //$ssn
             ;
-            //$ssp1
+            //$ssn1
             ss.Next(__int__.Parse, __X__)
-            //$ssp1
+            //$ssn1
             ;
-            //$ssp2
+            //$ssn2
             ss.Next(__int__.Parse, __X__, __Y__)
-            //$ssp2
+            //$ssn2
             ;
 
             {
-                //$vssn
-                var __N__ = ss.Next(__Int__);
-                //$vssn
+                //$vsss
+                var __N__ = ss.Next(String);
+                //$vsss
             }
             {
-                //$vssn1
-                var __N__ = ss.Next(__Int__, __X__);
-                //$vssn1
+                //$vsss1
+                var __N__ = ss.Next(String, __X__);
+                //$vsss1
             }
             {
-                //$vssn2
-                var __N__ = ss.Next(__Int__, __X__, __Y__);
-                //$vssn2
+                //$vsss2
+                var __N__ = ss.Next(String, __X__, __Y__);
+                //$vsss2
             }
 
             {
-                //$vssp
+                //$vssn
                 var __N__ = ss.Next(__int__.Parse);
-                //$vssp
+                //$vssn
             }
             {
-                //$vssp1
+                //$vssn1
                 var __N__ = ss.Next(__int__.Parse, __X__);
-                //$vssp1
+                //$vssn1
             }
             {
-                //$vssp2
+                //$vssn2
                 var __N__ = ss.Next(__int__.Parse, __X__, __Y__);
-                //$vssp2
+                //$vssn2
             }
         }
 
