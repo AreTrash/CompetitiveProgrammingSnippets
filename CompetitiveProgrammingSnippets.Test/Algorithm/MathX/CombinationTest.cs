@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace Algorithm.MathX
 {
@@ -19,6 +20,15 @@ namespace Algorithm.MathX
             Assert.Equal(2, comb.Fact(2));
             Assert.Equal(3628800, comb.Fact(10));
             Assert.Equal(437918130, comb.Fact(100));
+        }
+
+        [Fact]
+        void Inv()
+        {
+            Assert.Equal(1, comb.Inv(0));
+            Assert.Equal(1, comb.Inv(1));
+            Assert.Equal(283194722, comb.Inv(10));
+            Assert.Equal(875453797, comb.Inv(100));
         }
 
         [Fact]
