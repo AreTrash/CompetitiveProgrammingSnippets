@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\BasicDataStructure\PriorityQueueTest.cs" />
+    <Compile Include="Algorithm\MathX\BinarySearchTest.cs" />
     <Compile Include="Algorithm\MathX\CombinationTest.cs" />
     <Compile Include="Algorithm\MathX\MathXTest.cs" />
     <Compile Include="Algorithm\MathX\ModIntTest.cs" />
