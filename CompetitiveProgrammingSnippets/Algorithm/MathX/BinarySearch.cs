@@ -13,7 +13,7 @@ namespace Algorithm.MathX
             while (true)
             {
                 if (left == right) return right;
-                var mid = (left + right - 1) / 2;
+                var mid = (left + right - 1) >> 1;
                 if (pred(mid)) right = mid;
                 else left = mid + 1;
             }
@@ -60,7 +60,7 @@ namespace Algorithm.MathX
             while (true)
             {
                 if (left == right) return left;
-                var mid = (left + right + 1) / 2;
+                var mid = (left + right + 1) >> 1;
                 if (pred(mid)) left = mid;
                 else right = mid - 1;
             }
@@ -71,7 +71,7 @@ namespace Algorithm.MathX
             while (true)
             {
                 if (Math.Abs(inValue - outValue) <= 1) return inValue;
-                var mid = (inValue + outValue) / 2;
+                var mid = (inValue + outValue) >> 1;
                 if (pred(mid)) inValue = mid;
                 else outValue = mid;
             }
