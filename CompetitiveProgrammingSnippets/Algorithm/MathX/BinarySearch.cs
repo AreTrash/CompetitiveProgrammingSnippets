@@ -29,6 +29,11 @@ namespace Algorithm.MathX
             return BoundToTheRight(x => func(x).CompareTo(value) > 0, left, right);
         }
 
+        public static long Range<T>(Func<long, T> func, T vLeft, T vRight, long inLeft, long inRight) where T : IComparable<T>
+        {
+            return UpperBound(func, vRight, inLeft, inRight) - LowerBound(func, vLeft, inLeft, inRight);
+        }
+
         public static int LowerBound<T>(this T[] source, T value) where T : IComparable<T>
         {
             return (int)LowerBound(x => source[x], value, 0, source.Length);
