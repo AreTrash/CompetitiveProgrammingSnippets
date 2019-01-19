@@ -3,9 +3,11 @@
 namespace Algorithm.MathX
 {
     //$bs
-    //@二分探索 単調増加であることが条件 left <= ret < right
+    //@二分探索 単調増加、単調減少であることが条件 left <= ret < right
     public static partial class BinarySearch
     {
+        public static int UndecidableOrder = 1;
+
         static long BoundToTheRight(Func<long, bool> pred, long left, long right)
         {
             if (left > right) throw new ArgumentException("left must <= right");
@@ -19,19 +21,29 @@ namespace Algorithm.MathX
             }
         }
 
+        //1: asc, -1: desc
+        static int GetOrder<T>(Func<long, T> func, long left, long right) where T : IComparable<T>
+        {
+            if (left == right) return UndecidableOrder;
+            var sign = Math.Sign(func(right - 1).CompareTo(func(left)));
+            return sign == 0 ? UndecidableOrder : sign;
+        }
+
         public static long LowerBound<T>(Func<long, T> func, T value, long left, long right) where T : IComparable<T>
         {
-            return BoundToTheRight(x => func(x).CompareTo(value) >= 0, left, right);
+            var order = GetOrder(func, left, right);
+            return BoundToTheRight(x => order * func(x).CompareTo(value) >= 0, left, right);
         }
 
         public static long UpperBound<T>(Func<long, T> func, T value, long left, long right) where T : IComparable<T>
         {
-            return BoundToTheRight(x => func(x).CompareTo(value) > 0, left, right);
+            var order = GetOrder(func, left, right);
+            return BoundToTheRight(x => order * func(x).CompareTo(value) > 0, left, right);
         }
 
         public static long Range<T>(Func<long, T> func, T vLeft, T vRight, long inLeft, long inRight) where T : IComparable<T>
         {
-            return UpperBound(func, vRight, inLeft, inRight) - LowerBound(func, vLeft, inLeft, inRight);
+            return Math.Max(0, UpperBound(func, vRight, inLeft, inRight) - LowerBound(func, vLeft, inLeft, inRight));
         }
 
         public static int LowerBound<T>(this T[] source, T value) where T : IComparable<T>
@@ -46,7 +58,7 @@ namespace Algorithm.MathX
 
         public static int Range<T>(this T[] source, T vLeft, T vRight) where T : IComparable<T>
         {
-            return source.UpperBound(vRight) - source.LowerBound(vLeft);
+            return Math.Max(0, source.UpperBound(vRight) - source.LowerBound(vLeft));
         }
     }
     //$bs
