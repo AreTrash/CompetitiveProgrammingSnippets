@@ -112,6 +112,8 @@ namespace Algorithm.MathX
             Assert.Equal(1, new long[] {2}.Range(1, 3));
             Assert.Equal(1, new long[] {3}.Range(1, 3));
             Assert.Equal(0, new long[] {4}.Range(1, 3));
+
+            Assert.Equal(0, new[] {0, 1, 2, 3, 4}.Range(3, 1));
         }
 
         [Fact]

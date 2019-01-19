@@ -31,7 +31,7 @@ namespace Algorithm.MathX
 
         public static long Range<T>(Func<long, T> func, T vLeft, T vRight, long inLeft, long inRight) where T : IComparable<T>
         {
-            return UpperBound(func, vRight, inLeft, inRight) - LowerBound(func, vLeft, inLeft, inRight);
+            return Math.Max(0, UpperBound(func, vRight, inLeft, inRight) - LowerBound(func, vLeft, inLeft, inRight));
         }
 
         public static int LowerBound<T>(this T[] source, T value) where T : IComparable<T>
@@ -46,7 +46,7 @@ namespace Algorithm.MathX
 
         public static int Range<T>(this T[] source, T vLeft, T vRight) where T : IComparable<T>
         {
-            return source.UpperBound(vRight) - source.LowerBound(vLeft);
+            return Math.Max(0, source.UpperBound(vRight) - source.LowerBound(vLeft));
         }
     }
     //$bs
