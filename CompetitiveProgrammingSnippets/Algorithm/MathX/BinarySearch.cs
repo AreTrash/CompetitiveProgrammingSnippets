@@ -43,9 +43,9 @@ namespace Algorithm.MathX
             return this;
         }
 
-        public BinarySearch<T> SetOrder(bool isAscending)
+        public BinarySearch<T> SetOrder(bool isOrderAscending)
         {
-            IsOrderAscending = isAscending;
+            IsOrderAscending = isOrderAscending;
             return this;
         }
 
