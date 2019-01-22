@@ -2,20 +2,6 @@
 
 namespace Algorithm.MathX
 {
-    using __long__ = Int64;
-
-    //Modがstaticなので一つのプロジェクトでの複数のModには対応していない
-    //ModのセットはModIntを使う前にする
-
-    //BigIntegerに対応するとなぜかintやlongからの暗黙のキャストが効かないので以下のメソッドを追加する
-    /*
-    public static implicit operator ModInt(long value)
-    {
-        return new ModInt(value);
-    }
-    */
-    //ただ、BigInteger遅すぎて辛い
-
     //A^N mod P の周期は P-1（フェルマーの小定理？）
     //ただ0^0になったときの場合分けが面倒なので実装は取り敢えず保留
     //if (exp >= Mod - 1) return Pow(exp % (Mod - 1));
@@ -41,16 +27,22 @@ namespace Algorithm.MathX
     //@ModInt Modは素数推奨
     public struct ModInt
     {
-        public static int Mod = 1000000007;
+        public static int DefaultMod = 1000000007;
 
-        readonly __long__ value;
+        readonly long value;
+        readonly int mod;
+
         public int Value { get { return (int)value; } }
+        public int Mod { get { return mod; } }
         public ModInt Inverse { get { return GetInverse(); } }
 
-        public ModInt(__long__ value)
+        public ModInt(long value) : this(value, DefaultMod) { }
+
+        public ModInt(long value, int mod)
         {
-            value %= Mod;
-            this.value = value < 0 ? value + Mod : value;
+            value %= mod;
+            this.value = value < 0 ? value + mod : value;
+            this.mod = mod;
         }
 
         ModInt GetInverse()
@@ -64,36 +56,64 @@ namespace Algorithm.MathX
             return this * this;
         }
 
-        public ModInt Pow(__long__ exp)
+        public ModInt Pow(long exp)
         {
-            if (exp == 0) return 1;
+            if (exp == 0) return new ModInt(1, mod);
             if (exp % 2 == 0) return Pow(exp / 2).Square();
             return this * Pow(exp - 1);
         }
 
         public static ModInt Parse(string str)
         {
-            return __long__.Parse(str);
+            return long.Parse(str);
         }
 
-        public static implicit operator ModInt(__long__ value)
+        public static ModInt Parse(string str, int mod)
+        {
+            return new ModInt(long.Parse(str), mod);
+        }
+
+        public static implicit operator ModInt(long value)
         {
             return new ModInt(value);
         }
 
+        static void AssertSameMod(ModInt left, ModInt right)
+        {
+            if (left.mod != right.mod) throw new ArgumentException($"{nameof(left.Mod)} != {nameof(right.Mod)}");
+        }
+
         public static ModInt operator +(ModInt left, ModInt right)
         {
-            return left.value + right.value;
+            AssertSameMod(left, right);
+            return new ModInt(left.value + right.value, left.mod);
+        }
+
+        public static ModInt operator +(ModInt mi, long num)
+        {
+            return mi + new ModInt(num, mi.mod);
         }
 
         public static ModInt operator -(ModInt left, ModInt right)
         {
-            return left.value - right.value;
+            AssertSameMod(left, right);
+            return new ModInt(left.value - right.value, left.mod);
+        }
+
+        public static ModInt operator -(ModInt mi, long num)
+        {
+            return mi - new ModInt(num, mi.mod);
         }
 
         public static ModInt operator *(ModInt left, ModInt right)
         {
-            return left.value * right.value;
+            AssertSameMod(left, right);
+            return new ModInt(left.value * right.value, left.mod);
+        }
+
+        public static ModInt operator *(ModInt mi, long num)
+        {
+            return mi * new ModInt(num, mi.mod);
         }
 
         public static ModInt operator /(ModInt left, ModInt right)
@@ -101,10 +121,16 @@ namespace Algorithm.MathX
             return left * right.Inverse;
         }
 
+        public static ModInt operator /(ModInt mi, long num)
+        {
+            return mi / new ModInt(num, mi.mod);
+        }
+
         public override bool Equals(object obj)
         {
             if (!(obj is ModInt)) return false;
-            return value == ((ModInt)obj).value;
+            var mi = (ModInt)obj;
+            return value == mi.value && mod == mi.mod;
         }
 
         public override int GetHashCode()
