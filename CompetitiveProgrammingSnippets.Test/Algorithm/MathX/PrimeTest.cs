@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Xunit;
+﻿using Xunit;
 
 namespace Algorithm.MathX
 {
@@ -47,22 +46,22 @@ namespace Algorithm.MathX
         [Fact]
         void Factorize()
         {
-            Assert.Equal(new int[0], prime.Factorize(1));
+            Assert.Equal(new long[0], prime.Factorize(1));
 
-            Assert.Equal(new[] {2}, prime.Factorize(2));
-            Assert.Equal(new[] {3}, prime.Factorize(3));
-            Assert.Equal(new[] {2, 2}, prime.Factorize(4));
+            Assert.Equal(new[] {2L}, prime.Factorize(2));
+            Assert.Equal(new[] {3L}, prime.Factorize(3));
+            Assert.Equal(new[] {2L, 2}, prime.Factorize(4));
 
-            Assert.Equal(new[] {3, 19}, prime.Factorize(57));
-            Assert.Equal(new[] {2, 2, 5, 5}, prime.Factorize(100));
-            Assert.Equal(new[] {2, 2, 2, 3, 3, 5}, prime.Factorize(360));
+            Assert.Equal(new[] {3L, 19}, prime.Factorize(57));
+            Assert.Equal(new[] {2L, 2, 5, 5}, prime.Factorize(100));
+            Assert.Equal(new[] {2L, 2, 2, 3, 3, 5}, prime.Factorize(360));
 
-            Assert.Equal(new[] {9973}, prime.Factorize(9973));
-            Assert.Equal(new[] {3, 3, 11, 101}, prime.Factorize(9999));
-            Assert.Equal(new[] {2, 2, 2, 2, 5, 5, 5, 5}, prime.Factorize(10000));
+            Assert.Equal(new[] {9973L}, prime.Factorize(9973));
+            Assert.Equal(new[] {3L, 3, 11, 101}, prime.Factorize(9999));
+            Assert.Equal(new[] {2L, 2, 2, 2, 5, 5, 5, 5}, prime.Factorize(10000));
 
             //n <= max ^ 2 じゃないと駄目
-            Assert.Equal(new[] {10201}, prime.Factorize(101 * 101));
+            Assert.Equal(new[] {10201L}, prime.Factorize(101 * 101));
         }
 
         [Fact]

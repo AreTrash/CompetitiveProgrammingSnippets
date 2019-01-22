@@ -13,13 +13,13 @@ namespace Algorithm.MathX
 
         public Prime(int max = CoverIntRangeMax)
         {
-            primes = new List<int>();
+            primes = new List<int> {2};
             var sieve = new bool[max + 1];
-            for (var i = 2; i <= max; i++)
+            for (var i = 3; i <= max; i += 2)
             {
                 if (sieve[i]) continue;
                 primes.Add(i);
-                for (var j = i << 1; j <= max; j += i) sieve[j] = true;
+                for (var j = i * 3; j <= max; j += i << 1) sieve[j] = true;
             }
         }
 
