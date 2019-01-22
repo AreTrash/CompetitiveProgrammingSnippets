@@ -71,6 +71,13 @@ namespace Algorithm.MathX
             Assert.Equal(1, prime.EulersTotient(1));
             Assert.Equal(1, prime.EulersTotient(2));
             Assert.Equal(2, prime.EulersTotient(3));
+            Assert.Equal(2, prime.EulersTotient(4));
+            Assert.Equal(4, prime.EulersTotient(5));
+            Assert.Equal(2, prime.EulersTotient(6));
+            Assert.Equal(6, prime.EulersTotient(7));
+            Assert.Equal(4, prime.EulersTotient(8));
+            Assert.Equal(6, prime.EulersTotient(9));
+            Assert.Equal(4, prime.EulersTotient(10));
 
             Assert.Equal(8, prime.EulersTotient(16));
             Assert.Equal(12, prime.EulersTotient(36));
