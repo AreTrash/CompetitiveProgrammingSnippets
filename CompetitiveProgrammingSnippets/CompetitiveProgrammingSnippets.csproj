@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\BasicDataStructure\PriorityQueue.cs" />
+    <Compile Include="Algorithm\BasicDataStructure\UnionFind.cs" />
     <Compile Include="Algorithm\MathX\BinarySearch.cs" />
     <Compile Include="Algorithm\MathX\Combination.cs" />
     <Compile Include="Algorithm\MathX\MathX.cs" />
