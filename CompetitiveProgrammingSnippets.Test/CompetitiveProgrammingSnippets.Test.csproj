@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.abstractions.2.0.1\lib\net35\xunit.abstractions.dll</HintPath>
     </Reference>
@@ -65,6 +66,7 @@
     <Compile Include="Algorithm\MathX\BinarySearchTest.cs" />
     <Compile Include="Algorithm\MathX\CombinationTest.cs" />
     <Compile Include="Algorithm\MathX\MathXTest.cs" />
+    <Compile Include="Algorithm\MathX\MillerRabinTest.cs" />
     <Compile Include="Algorithm\MathX\ModIntTest.cs" />
     <Compile Include="Algorithm\MathX\PrimeTest.cs" />
     <Compile Include="Algorithm\ShortestPath\DijkstraTest.cs" />

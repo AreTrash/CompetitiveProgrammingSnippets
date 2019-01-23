@@ -46,12 +46,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Algorithm\BasicDataStructure\PriorityQueue.cs" />
     <Compile Include="Algorithm\MathX\BinarySearch.cs" />
     <Compile Include="Algorithm\MathX\Combination.cs" />
     <Compile Include="Algorithm\MathX\MathX.cs" />
+    <Compile Include="Algorithm\MathX\MillerRabin.cs" />
     <Compile Include="Algorithm\MathX\ModInt.cs" />
     <Compile Include="Algorithm\MathX\Prime.cs" />
     <Compile Include="Algorithm\ShortestPath\Dijkstra.cs" />
