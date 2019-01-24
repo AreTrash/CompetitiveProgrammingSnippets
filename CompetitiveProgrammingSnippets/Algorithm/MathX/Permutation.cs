@@ -17,7 +17,7 @@ namespace Algorithm.MathX
             return PermutationCore(items, -1);
         }
 
-        public static bool PermutationCore<T>(T[] items, int sign) where T : IComparable<T>
+        static bool PermutationCore<T>(T[] items, int sign) where T : IComparable<T>
         {
             int x, y;
 
