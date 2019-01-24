@@ -73,35 +73,5 @@ namespace Algorithm.MathX
             return ret;
         }
         //$pbs
-        //$nextPermutation
-        public static bool NextPermutation<T>(T[] items) where T : IComparable<T>
-        {
-            var x = -1;
-            for (var i = items.Length - 2; i >= 0; i--)
-            {
-                if (items[i].CompareTo(items[i + 1]) >= 0) continue;
-                x = i;
-                break;
-            }
-
-            if (x < 0) return false;
-
-            var y = -1;
-            for (var i = items.Length - 1; i >= 0; i--)
-            {
-                if (items[x].CompareTo(items[i]) >= 0) continue;
-                y = i;
-                break;
-            }
-
-            Swap(ref items[x], ref items[y]);
-            for (int i = x + 1, j = items.Length - 1; i < j; i++, j--)
-            {
-                Swap(ref items[i], ref items[j]);
-            }
-
-            return true;
-        }
-        //$nextPermutation
     }
 }

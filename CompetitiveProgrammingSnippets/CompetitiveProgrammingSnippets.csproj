@@ -56,6 +56,7 @@
     <Compile Include="Algorithm\MathX\MathX.cs" />
     <Compile Include="Algorithm\MathX\MillerRabin.cs" />
     <Compile Include="Algorithm\MathX\ModInt.cs" />
+    <Compile Include="Algorithm\MathX\Permutation.cs" />
     <Compile Include="Algorithm\MathX\Prime.cs" />
     <Compile Include="Algorithm\ShortestPath\Dijkstra.cs" />
     <Compile Include="Algorithm\ShortestPath\DijkstraUsedMatrix.cs" />
