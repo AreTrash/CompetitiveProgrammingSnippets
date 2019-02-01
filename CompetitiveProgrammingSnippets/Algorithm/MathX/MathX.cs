@@ -1,11 +1,5 @@
-﻿using System;
-using Algorithm.BasicDataStructure;
-
-namespace Algorithm.MathX
+﻿namespace Algorithm.MathX
 {
-    using __int__ = Int32;
-    using __long__ = Int64;
-
     //$mathx
     public static partial class MathX
     {
@@ -27,19 +21,19 @@ namespace Algorithm.MathX
         //@LeastCommonMultiple (a > 0 && b > 0)
         //$gcd
         //@GreatestCommonDivisor (a > 0 && b > 0)
-        public static __int__ Gcd(__int__ a, __int__ b)
+        public static long Gcd(long a, long b)
         {
             return b == 0 ? a : Gcd(b, a % b);
         }
         //$gcd
-        public static __int__ Lcm(__int__ a, __int__ b)
+        public static long Lcm(long a, long b)
         {
-            return checked(a * (b / Gcd(a, b)));
+            return a * (b / Gcd(a, b));
         }
         //$lcm
         //$gcdex
         //@拡張ユークリッドの互除法 (a > 0 && b > 0)
-        public static __int__ GcdEx(__int__ a, __int__ b, out __int__ x, out __int__ y)
+        public static long GcdEx(long a, long b, out long x, out long y)
         {
             if (b == 0)
             {
@@ -48,7 +42,7 @@ namespace Algorithm.MathX
                 return a;
             }
 
-            __int__ tx, ty;
+            long tx, ty;
             var gcd = GcdEx(b, a % b, out tx, out ty);
 
             x = ty;
@@ -58,7 +52,7 @@ namespace Algorithm.MathX
         //$gcdex
         //$gcdexf
         //@拡張ユークリッドの互除法タプル利用 (a > 0 && b > 0)
-        public static (__int__ gcd, __int__ x, __int__ y) GcdEx(__int__ a, __int__ b)
+        public static (long gcd, long x, long y) GcdEx(long a, long b)
         {
             if (b == 0) return (a, 1, 0);
             var (gcd, x, y) = GcdEx(b, a % b);
