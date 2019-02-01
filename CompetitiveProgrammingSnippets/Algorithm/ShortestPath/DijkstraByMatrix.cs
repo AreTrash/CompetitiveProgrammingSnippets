@@ -9,6 +9,7 @@ namespace Algorithm.ShortestPath
     //@DijkstraByMatrix O(V^2) 辺の数がものすごく多く、頂点数が割と少ないとき
     public class DijkstraByMatrix
     {
+        public static readonly long Infinity = long.MaxValue;
         readonly long[,] costMatrix;
 
         public DijkstraByMatrix(int v)
@@ -18,7 +19,7 @@ namespace Algorithm.ShortestPath
             for (var i = 0; i < v; i++)
             for (var j = 0; j < v; j++)
             {
-                costMatrix[i, j] = long.MaxValue;
+                costMatrix[i, j] = Infinity;
             }
         }
 
@@ -39,7 +40,7 @@ namespace Algorithm.ShortestPath
             var willUse = new HashSet<int>(Enumerable.Range(0, v));
             var dist = new long[v];
 
-            for (var i = 0; i < v; i++) dist[i] = long.MaxValue;
+            for (var i = 0; i < v; i++) dist[i] = Infinity;
             dist[start] = 0;
 
             while (willUse.Count > 0)
@@ -50,7 +51,7 @@ namespace Algorithm.ShortestPath
 
                 for (var to = 0; to < v; to++)
                 {
-                    if (costMatrix[from, to] == long.MaxValue) continue;
+                    if (costMatrix[from, to] == Infinity) continue;
                     dist[to] = Math.Min(dist[to], dist[from] + costMatrix[from, to]);
                 }
             }

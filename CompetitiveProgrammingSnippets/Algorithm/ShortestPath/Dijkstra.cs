@@ -9,6 +9,8 @@ namespace Algorithm.ShortestPath
     //@Dijkstra O((V+E)LogV) 頂点の数が多く、辺の数が割と少ないとき dependency: pq
     public class Dijkstra
     {
+        public static readonly long Infinity = long.MaxValue;
+
         public struct Edge
         {
             public int To;
@@ -50,7 +52,7 @@ namespace Algorithm.ShortestPath
             var v = edges.Length;
             var dist = new long[v];
 
-            for (var i = 0; i < v; i++) dist[i] = long.MaxValue;
+            for (var i = 0; i < v; i++) dist[i] = Infinity;
             dist[start] = 0;
 
             var pq = new PriorityQueue<Node>();
