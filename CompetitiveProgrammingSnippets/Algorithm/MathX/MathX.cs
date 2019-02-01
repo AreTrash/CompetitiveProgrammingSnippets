@@ -22,7 +22,6 @@ namespace Algorithm.MathX
             left = right;
             right = tmp;
         }
-
         //$swap
         //$lcm
         //@LeastCommonMultiple (a > 0 && b > 0)
@@ -32,13 +31,11 @@ namespace Algorithm.MathX
         {
             return b == 0 ? a : Gcd(b, a % b);
         }
-
         //$gcd
         public static __int__ Lcm(__int__ a, __int__ b)
         {
             return checked(a * (b / Gcd(a, b)));
         }
-
         //$lcm
         //$gcdex
         //@拡張ユークリッドの互除法 (a > 0 && b > 0)
@@ -58,7 +55,6 @@ namespace Algorithm.MathX
             y = tx - ty * (a / b);
             return gcd;
         }
-
         //$gcdex
         //$gcdexf
         //@拡張ユークリッドの互除法タプル利用 (a > 0 && b > 0)
@@ -68,7 +64,6 @@ namespace Algorithm.MathX
             var (gcd, x, y) = GcdEx(b, a % b);
             return (gcd, y, x - y * (a / b));
         }
-
         //$gcdexf
         //$pbs
         public static long ParseBigString(string str, long mod)
@@ -77,7 +72,6 @@ namespace Algorithm.MathX
             foreach (var c in str) ret = (ret * 10 + (c - '0')) % mod;
             return ret;
         }
-
         //$pbs
     }
 }
