@@ -14,8 +14,8 @@ namespace Algorithm.MathX
         [Fact]
         void Construct()
         {
-            Assert.Equal(new[]{2, 3, 5, 7}, new Prime(10).List);
-            Assert.Equal(new[]{2, 3, 5, 7, 11}, new Prime(11).List);
+            Assert.Equal(new[] {2, 3, 5, 7}, new Prime(10).List);
+            Assert.Equal(new[] {2, 3, 5, 7, 11}, new Prime(11).List);
         }
 
         [Fact]

@@ -17,7 +17,7 @@ namespace __PROJECT__
         static void Main()
         {
             var ss = new StreamScanner(new StreamReader(Console.OpenStandardInput()));
-            var sw = new StreamWriter(Console.OpenStandardOutput()){AutoFlush = false};
+            var sw = new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = false};
             new Program().Solve(ss, sw);
             sw.Flush();
         }
@@ -43,6 +43,7 @@ namespace __PROJECT__
             foreach (var nextString in nextStrings) buffer.Enqueue(nextString);
             return Next(parser);
         }
+
         //$ssnx2
         //$ssnx1
         public T[] Next<T>(Func<string, T> parser, int x)
@@ -51,6 +52,7 @@ namespace __PROJECT__
             for (var i = 0; i < x; ++i) ret[i] = Next(parser);
             return ret;
         }
+
         //$ssnx1
         public T[][] Next<T>(Func<string, T> parser, int x, int y)
         {
@@ -58,6 +60,7 @@ namespace __PROJECT__
             for (var i = 0; i < y; ++i) ret[i] = Next(parser, x);
             return ret;
         }
+
         //$ssnx2
     }
 }

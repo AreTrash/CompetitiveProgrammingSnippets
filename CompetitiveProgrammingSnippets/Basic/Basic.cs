@@ -20,29 +20,29 @@ namespace Basic
             var ss = new StreamScanner(new StreamReader(Console.OpenStandardInput()));
             //$sss
             ss.Next(String)
-            //$sss
-            ;
+                //$sss
+                ;
             //$sss1
             ss.Next(String, __X__)
-            //$sss1
-            ;
+                //$sss1
+                ;
             //$sss2
             ss.Next(String, __X__, __Y__)
-            //$sss2
-            ;
+                //$sss2
+                ;
 
             //$ssn
             ss.Next(__int__.Parse)
-            //$ssn
-            ;
+                //$ssn
+                ;
             //$ssn1
             ss.Next(__int__.Parse, __X__)
-            //$ssn1
-            ;
+                //$ssn1
+                ;
             //$ssn2
             ss.Next(__int__.Parse, __X__, __Y__)
-            //$ssn2
-            ;
+                //$ssn2
+                ;
 
             {
                 //$vsss
@@ -80,12 +80,12 @@ namespace Basic
         void StreamWriter()
         {
             var ____ = "NONE";
-            var sw = new StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
+            var sw = new StreamWriter(Console.OpenStandardOutput()) {AutoFlush = false};
             //$sww
-            sw.WriteLine(/*$SELECTED$*//*$END$*/);
+            sw.WriteLine( /*$SELECTED$*/ /*$END$*/);
             //$sww
             //$swww
-            sw.Write(/*$SELECTED$*//*$END$*/____);
+            sw.Write( /*$SELECTED$*/ /*$END$*/____);
             //$swww
         }
     }
@@ -102,7 +102,7 @@ namespace Basic
             {
                 for (var __index2__ = 0; __index2__ < __upper2__; __index2__++)
                 {
-                    /*$SELECTED$*//*$END$*/
+                    /*$SELECTED$*/ /*$END$*/
                 }
             }
             //$for2
@@ -112,8 +112,8 @@ namespace Basic
     public class DxDy4
     {
         //$dd4
-        readonly int[] dx = { 0, 1, 0, -1 };
-        readonly int[] dy = { 1, 0, -1, 0 };
+        readonly int[] dx = {0, 1, 0, -1};
+        readonly int[] dy = {1, 0, -1, 0};
         readonly int dl = 4;
         //$dd4
 
@@ -130,16 +130,16 @@ namespace Basic
     public class DxDy8
     {
         //$dd8
-        readonly int[] dx = { 0, 1, 0, -1, 1, 1, -1, -1 };
-        readonly int[] dy = { 1, 0, -1, 0, 1, -1, 1, -1 };
+        readonly int[] dx = {0, 1, 0, -1, 1, 1, -1, -1};
+        readonly int[] dy = {1, 0, -1, 0, 1, -1, 1, -1};
         readonly int dl = 8;
         //$dd8
 
         void DD8()
         {
             //$dd8s
-            var dx = new[] { 0, 1, 0, -1, 1, 1, -1, -1 };
-            var dy = new[] { 1, 0, -1, 0, 1, -1, 1, -1 };
+            var dx = new[] {0, 1, 0, -1, 1, 1, -1, -1};
+            var dy = new[] {1, 0, -1, 0, 1, -1, 1, -1};
             var dl = 8;
             //$dd8s
         }

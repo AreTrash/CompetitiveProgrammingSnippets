@@ -43,7 +43,7 @@ namespace Algorithm.ShortestPath
                 dijkstra.AddEdge(from, to, cost);
             }
 
-            Assert.Equal(new long[] { 0, 2, 2, 1, 3 }, dijkstra.GetDistances(0));
+            Assert.Equal(new long[] {0, 2, 2, 1, 3}, dijkstra.GetDistances(0));
         }
     }
 }
