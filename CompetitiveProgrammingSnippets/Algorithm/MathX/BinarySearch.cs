@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Algorithm.MathX
 {
@@ -11,12 +12,12 @@ namespace Algorithm.MathX
             return new BinarySearch<T>().SetFunc(func).SetInterval(left, right);
         }
 
-        public static BinarySearch<T> Array<T>(T[] array) where T : IComparable<T>
+        public static BinarySearch<T> Array<T>(IList<T> source) where T : IComparable<T>
         {
-            return new BinarySearch<T>().SetFunc(x => array[x]).SetInterval(0, array.Length);
+            return new BinarySearch<T>().SetFunc(x => source[(int)x]).SetInterval(0, source.Count);
         }
 
-        public static BinarySearch<T> GetBinarySearch<T>(this T[] source) where T : IComparable<T>
+        public static BinarySearch<T> ToBinarySearch<T>(this IList<T> source) where T : IComparable<T>
         {
             return Array(source);
         }

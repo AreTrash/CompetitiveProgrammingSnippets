@@ -5,6 +5,7 @@ using System.Collections.Generic;
 namespace Algorithm.BasicDataStructure
 {
     //$pq
+    //@PriorityQueue
     public class PriorityQueue<T> : IEnumerable<T> where T : IComparable<T>
     {
         public int Count { get { return list.Count; } }

@@ -4,47 +4,42 @@ using System.Linq;
 
 namespace Algorithm.ShortestPath
 {
-    using __int__ = Int32;
-
     //参考: プログラミングコンテストチャレンジブック（蟻本）P.96
-    //辺の数がものすごく多く、頂点数が割と少ないときに有効
     //$dijkmat
-    //@DijkstraUsedMatrix O(V^2)
-    public class DijkstraUsedMatrix
+    //@DijkstraByMatrix O(V^2) 辺の数がものすごく多く、頂点数が割と少ないとき
+    public class DijkstraByMatrix
     {
-        readonly __int__[,] costMatrix;
+        readonly long[,] costMatrix;
 
-        public DijkstraUsedMatrix(int v)
+        public DijkstraByMatrix(int v)
         {
-            costMatrix = new __int__[v, v];
+            costMatrix = new long[v, v];
 
             for (var i = 0; i < v; i++)
+            for (var j = 0; j < v; j++)
             {
-                for (var j = 0; j < v; j++)
-                {
-                    costMatrix[i, j] = __int__.MaxValue;
-                }
+                costMatrix[i, j] = long.MaxValue;
             }
         }
 
-        public void AddDirectedEdge(int from, int to, __int__ cost)
+        public void AddEdge(int from, int to, long cost)
         {
             costMatrix[from, to] = cost;
         }
 
-        public void AddUndirectedEdge(int v1, int v2, __int__ cost)
+        public void AddUndirectedEdge(int v1, int v2, long cost)
         {
-            AddDirectedEdge(v1, v2, cost);
-            AddDirectedEdge(v2, v1, cost);
+            AddEdge(v1, v2, cost);
+            AddEdge(v2, v1, cost);
         }
 
-        public __int__[] GetDistances(int start)
+        public long[] GetDistances(int start)
         {
             var v = costMatrix.GetLength(0);
             var willUse = new HashSet<int>(Enumerable.Range(0, v));
-            var dist = new __int__[v];
+            var dist = new long[v];
 
-            for (var i = 0; i < v; i++) dist[i] = __int__.MaxValue;
+            for (var i = 0; i < v; i++) dist[i] = long.MaxValue;
             dist[start] = 0;
 
             while (willUse.Count > 0)
@@ -55,7 +50,7 @@ namespace Algorithm.ShortestPath
 
                 for (var to = 0; to < v; to++)
                 {
-                    if (costMatrix[from, to] == __int__.MaxValue) continue;
+                    if (costMatrix[from, to] == long.MaxValue) continue;
                     dist[to] = Math.Min(dist[to], dist[from] + costMatrix[from, to]);
                 }
             }

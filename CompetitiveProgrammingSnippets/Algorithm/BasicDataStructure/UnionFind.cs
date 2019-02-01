@@ -1,6 +1,7 @@
 ﻿namespace Algorithm.BasicDataStructure
 {
     //$uf
+    //@UnionFind (BySize)
     public class UnionFind
     {
         readonly int[] p;

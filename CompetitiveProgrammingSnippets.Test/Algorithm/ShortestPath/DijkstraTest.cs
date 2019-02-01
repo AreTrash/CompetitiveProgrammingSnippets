@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Xunit;
 
 namespace Algorithm.ShortestPath
@@ -28,23 +27,23 @@ namespace Algorithm.ShortestPath
 
             foreach (var (from, to, cost) in edges)
             {
-                dijkstra.AddDirectedEdge(from, to, cost);
+                dijkstra.AddEdge(from, to, cost);
             }
 
-            Assert.Equal(new[] {0, 2, 2, 1, 3}, dijkstra.GetDistances(0));
+            Assert.Equal(new long[] {0, 2, 2, 1, 3}, dijkstra.GetDistances(0));
         }
 
         [Fact]
         void DijkstraUsedMatrix()
         {
-            var dijkstra = new DijkstraUsedMatrix(v);
+            var dijkstra = new DijkstraByMatrix(v);
 
             foreach (var (from, to, cost) in edges)
             {
-                dijkstra.AddDirectedEdge(from, to, cost);
+                dijkstra.AddEdge(from, to, cost);
             }
 
-            Assert.Equal(new[] { 0, 2, 2, 1, 3 }, dijkstra.GetDistances(0));
+            Assert.Equal(new long[] { 0, 2, 2, 1, 3 }, dijkstra.GetDistances(0));
         }
     }
 }
