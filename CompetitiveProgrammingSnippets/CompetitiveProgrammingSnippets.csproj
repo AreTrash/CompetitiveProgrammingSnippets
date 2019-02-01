@@ -59,7 +59,7 @@
     <Compile Include="Algorithm\MathX\Permutation.cs" />
     <Compile Include="Algorithm\MathX\Prime.cs" />
     <Compile Include="Algorithm\ShortestPath\Dijkstra.cs" />
-    <Compile Include="Algorithm\ShortestPath\DijkstraUsedMatrix.cs" />
+    <Compile Include="Algorithm\ShortestPath\DijkstraByMatrix.cs" />
     <Compile Include="Basic\Basic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Basic\Main.cs" />
