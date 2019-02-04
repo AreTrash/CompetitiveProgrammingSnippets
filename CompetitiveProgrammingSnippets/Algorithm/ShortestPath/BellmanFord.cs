@@ -14,10 +14,11 @@ namespace Algorithm.ShortestPath
 
         protected override __long__[] GetDistancesCore(int start, __long__[] dist)
         {
+            var edges = Edges.SelectMany((es, f) => es.Select(e => new { From = f, e.To, e.Cost })).ToArray();
+
             for (var i = 0; i < V; i++)
             {
                 var updated = false;
-                var edges = Edges.SelectMany((es, f) => es.Select(e => new {From = f, e.To, e.Cost}));
                 foreach (var edge in edges)
                 {
                     if (dist[edge.From] == Infinity || dist[edge.To] <= dist[edge.From] + edge.Cost) continue;
