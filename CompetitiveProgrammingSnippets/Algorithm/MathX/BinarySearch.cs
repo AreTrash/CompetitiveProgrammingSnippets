@@ -12,14 +12,9 @@ namespace Algorithm.MathX
             return new BinarySearch<T>().SetFunc(func).SetInterval(left, right);
         }
 
-        public static BinarySearch<T> Array<T>(IList<T> source) where T : IComparable<T>
-        {
-            return new BinarySearch<T>().SetFunc(x => source[(int)x]).SetInterval(0, source.Count);
-        }
-
         public static BinarySearch<T> ToBinarySearch<T>(this IList<T> source) where T : IComparable<T>
         {
-            return Array(source);
+            return new BinarySearch<T>().SetFunc(x => source[(int)x]).SetInterval(0, source.Count);
         }
     }
 

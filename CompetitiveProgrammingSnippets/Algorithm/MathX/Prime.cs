@@ -9,7 +9,7 @@ namespace Algorithm.MathX
     {
         const int CoverIntRangeMax = 46349;
         readonly List<int> primes;
-        public IReadOnlyList<int> List { get { return primes; } }
+        public IReadOnlyList<int> List { get { return primes.AsReadOnly(); } }
 
         public Prime(int max = CoverIntRangeMax)
         {

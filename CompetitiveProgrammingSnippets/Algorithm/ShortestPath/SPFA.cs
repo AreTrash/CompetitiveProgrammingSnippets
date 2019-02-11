@@ -56,9 +56,7 @@ namespace Algorithm.ShortestPath
                 {
                     if (dist[from] == Infinity || dist[edge.To] <= dist[from] + edge.Cost) continue;
                     dist[edge.To] = dist[from] + edge.Cost;
-
-                    if (que.Enqueue(edge.To)) continue;
-                    return NegativeCycle;
+                    if (!que.Enqueue(edge.To)) return NegativeCycle;
                 }
             }
 
