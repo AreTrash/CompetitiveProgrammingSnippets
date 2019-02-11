@@ -8,7 +8,7 @@ namespace Algorithm.ShortestPath
     //$bf
     //@BellmanFord O(VE) 負の辺が存在 SPFAでよい
     //ref: プログラミングコンテストチャレンジブック（蟻本）P.95
-    public class BellmanFord : SP
+    public class BellmanFord : ShortestPath
     {
         public BellmanFord(int v) : base(v) { }
 

@@ -61,7 +61,7 @@
     <Compile Include="Algorithm\ShortestPath\BellmanFord.cs" />
     <Compile Include="Algorithm\ShortestPath\Dijkstra.cs" />
     <Compile Include="Algorithm\ShortestPath\DijkstraVV.cs" />
-    <Compile Include="Algorithm\ShortestPath\SP.cs" />
+    <Compile Include="Algorithm\ShortestPath\ShortestPath.cs" />
     <Compile Include="Algorithm\ShortestPath\SPFA.cs" />
     <Compile Include="Basic\Basic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

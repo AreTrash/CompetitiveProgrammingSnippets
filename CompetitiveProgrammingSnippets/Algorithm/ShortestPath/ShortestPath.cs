@@ -6,7 +6,7 @@ namespace Algorithm.ShortestPath
     using __long__ = Int64;
 
     //$sp
-    public abstract class SP
+    public abstract class ShortestPath
     {
         public static readonly __long__ Infinity = __long__.MaxValue;
         public static readonly __long__[] NegativeCycle = null;
@@ -20,7 +20,7 @@ namespace Algorithm.ShortestPath
         protected int V { get; }
         protected List<Edge>[] Edges { get; }
 
-        protected SP(int v)
+        protected ShortestPath(int v)
         {
             V = v;
             Edges = new List<Edge>[v];

@@ -7,7 +7,7 @@ namespace Algorithm.ShortestPath
 
     //$spfa
     //@SPFA O(VE) 負の辺が存在 bfより速い
-    public class SPFA : SP
+    public class SPFA : ShortestPath
     {
         class SPFAQueue
         {

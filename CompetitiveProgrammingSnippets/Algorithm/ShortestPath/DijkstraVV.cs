@@ -9,7 +9,7 @@ namespace Algorithm.ShortestPath
     //$dijkvv
     //@DijkstraVV O(V^2) 辺の数がものすごく多く、頂点数が割と少ないとき
     //ref: プログラミングコンテストチャレンジブック（蟻本）P.96
-    public class DijkstraVV : SP
+    public class DijkstraVV : ShortestPath
     {
         public DijkstraVV(int v) : base(v) { }
 

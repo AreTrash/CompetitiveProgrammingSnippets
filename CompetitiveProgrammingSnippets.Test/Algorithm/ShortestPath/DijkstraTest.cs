@@ -64,22 +64,22 @@ namespace Algorithm.ShortestPath
             {
                 var sp = new Dijkstra(v);
                 foreach (var (from, to, cost) in edges) sp.AddEdge(from, to, cost);
-                Assert.Equal(new long[] {3, 0, 2, SP.Infinity}, sp.GetDistances(s));
+                Assert.Equal(new long[] {3, 0, 2, ShortestPath.Infinity}, sp.GetDistances(s));
             }
             {
                 var sp = new DijkstraVV(v);
                 foreach (var (from, to, cost) in edges) sp.AddEdge(from, to, cost);
-                Assert.Equal(new long[] {3, 0, 2, SP.Infinity}, sp.GetDistances(s));
+                Assert.Equal(new long[] {3, 0, 2, ShortestPath.Infinity}, sp.GetDistances(s));
             }
             {
                 var sp = new BellmanFord(v);
                 foreach (var (from, to, cost) in edges) sp.AddEdge(from, to, cost);
-                Assert.Equal(new long[] {3, 0, 2, SP.Infinity}, sp.GetDistances(s));
+                Assert.Equal(new long[] {3, 0, 2, ShortestPath.Infinity}, sp.GetDistances(s));
             }
             {
                 var sp = new SPFA(v);
                 foreach (var (from, to, cost) in edges) sp.AddEdge(from, to, cost);
-                Assert.Equal(new long[] {3, 0, 2, SP.Infinity}, sp.GetDistances(s));
+                Assert.Equal(new long[] {3, 0, 2, ShortestPath.Infinity}, sp.GetDistances(s));
             }
         }
 
@@ -131,12 +131,12 @@ namespace Algorithm.ShortestPath
             {
                 var sp = new BellmanFord(v);
                 foreach (var (from, to, cost) in edges) sp.AddEdge(from, to, cost);
-                Assert.Equal(SP.NegativeCycle, sp.GetDistances(s));
+                Assert.Equal(ShortestPath.NegativeCycle, sp.GetDistances(s));
             }
             {
                 var sp = new SPFA(v);
                 foreach (var (from, to, cost) in edges) sp.AddEdge(from, to, cost);
-                Assert.Equal(SP.NegativeCycle, sp.GetDistances(s));
+                Assert.Equal(ShortestPath.NegativeCycle, sp.GetDistances(s));
             }
         }
     }

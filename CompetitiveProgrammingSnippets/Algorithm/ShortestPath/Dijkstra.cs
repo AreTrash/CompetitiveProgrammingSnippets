@@ -8,7 +8,7 @@ namespace Algorithm.ShortestPath
     //$dijk
     //@Dijkstra O((V+E)LogV) 負辺なしかつ(E<V^2) dependency: pq
     //ref: プログラミングコンテストチャレンジブック（蟻本）P.97
-    public class Dijkstra : SP
+    public class Dijkstra : ShortestPath
     {
         struct Node : IComparable<Node>
         {
