@@ -6,7 +6,7 @@ namespace Algorithm.ShortestPath
     using __long__ = Int64;
 
     //$spfa
-    //@SPFA O(VE) bfより速い
+    //@SPFA O(VE) 負の辺が存在 bfより速い
     public class SPFA : SP
     {
         class SPFAQueue
@@ -28,10 +28,13 @@ namespace Algorithm.ShortestPath
 
             public bool Enqueue(int n)
             {
+                if (pushCounts[n] >= v) return false;
                 if (isIns[n]) return true;
+
+                pushCounts[n]++;
                 isIns[n] = true;
                 que.Enqueue(n);
-                return (++pushCounts[n]) < v;
+                return true;
             }
 
             public int Dequeue()
@@ -44,8 +47,9 @@ namespace Algorithm.ShortestPath
 
         public SPFA(int v) : base(v) { }
 
-        protected override __long__[] GetDistancesCore(int start, __long__[] dist)
+        public override __long__[] GetDistances(int start)
         {
+            var dist = GetInitializedDistances(start);
             var que = new SPFAQueue(V);
             que.Enqueue(start);
 

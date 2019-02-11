@@ -5,16 +5,17 @@ namespace Algorithm.ShortestPath
 {
     using __long__ = Int64;
 
-    //参考: プログラミングコンテストチャレンジブック（蟻本）P.95
     //$bf
-    //@BellmanFord O(VE) 負の辺が存在するときに使う
+    //@BellmanFord O(VE) 負の辺が存在 SPFAでよい
+    //ref: プログラミングコンテストチャレンジブック（蟻本）P.95
     public class BellmanFord : SP
     {
         public BellmanFord(int v) : base(v) { }
 
-        protected override __long__[] GetDistancesCore(int start, __long__[] dist)
+        public override __long__[] GetDistances(int start)
         {
-            var edges = Edges.SelectMany((es, f) => es.Select(e => new { From = f, e.To, e.Cost })).ToArray();
+            var dist = GetInitializedDistances(start);
+            var edges = Edges.SelectMany((es, f) => es.Select(e => new { From = f, e.To, e.Cost }));
 
             for (var i = 0; i < V; i++)
             {

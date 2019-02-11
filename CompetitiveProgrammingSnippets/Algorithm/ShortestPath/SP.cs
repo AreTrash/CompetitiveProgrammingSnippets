@@ -38,16 +38,15 @@ namespace Algorithm.ShortestPath
             AddEdge(v2, v1, cost);
         }
 
-        public __long__[] GetDistances(int start)
+        public abstract __long__[] GetDistances(int start);
+
+        protected __long__[] GetInitializedDistances(int start)
         {
             var dist = new __long__[V];
             for (var i = 0; i < V; i++) dist[i] = Infinity;
             dist[start] = 0;
-            dist = GetDistancesCore(start, dist);
             return dist;
         }
-
-        protected abstract __long__[] GetDistancesCore(int start, __long__[] dist);
     }
     //$sp
 }

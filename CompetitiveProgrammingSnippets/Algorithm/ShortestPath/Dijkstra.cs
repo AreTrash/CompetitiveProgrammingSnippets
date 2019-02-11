@@ -5,9 +5,9 @@ namespace Algorithm.ShortestPath
 {
     using __long__ = Int64;
 
-    //参考: プログラミングコンテストチャレンジブック（蟻本）P.97
     //$dijk
-    //@Dijkstra O((V+E)LogV) 頂点の数が多く、辺の数が割と少ないとき dependency: pq
+    //@Dijkstra O((V+E)LogV) 負辺なしかつ(E<V^2) dependency: pq
+    //ref: プログラミングコンテストチャレンジブック（蟻本）P.97
     public class Dijkstra : SP
     {
         struct Node : IComparable<Node>
@@ -23,8 +23,9 @@ namespace Algorithm.ShortestPath
 
         public Dijkstra(int v) : base(v) { }
 
-        protected override __long__[] GetDistancesCore(int start, __long__[] dist)
+        public override __long__[] GetDistances(int start)
         {
+            var dist = GetInitializedDistances(start);
             var pq = new PriorityQueue<Node>();
             pq.Enqueue(new Node {Id = start, Cost = 0});
 
@@ -37,8 +38,8 @@ namespace Algorithm.ShortestPath
                 {
                     var to = edge.To;
                     var cost = node.Cost + edge.Cost;
-
                     if (dist[to] <= cost) continue;
+
                     dist[to] = cost;
                     pq.Enqueue(new Node {Id = to, Cost = cost});
                 }

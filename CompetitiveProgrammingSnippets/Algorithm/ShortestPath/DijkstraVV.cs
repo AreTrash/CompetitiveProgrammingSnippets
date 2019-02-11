@@ -6,23 +6,24 @@ namespace Algorithm.ShortestPath
 {
     using __long__ = Int64;
 
-    //参考: プログラミングコンテストチャレンジブック（蟻本）P.96
     //$dijkvv
-    //@DijkstraByMatrix O(V^2) 辺の数がものすごく多く、頂点数が割と少ないとき
+    //@DijkstraVV O(V^2) 辺の数がものすごく多く、頂点数が割と少ないとき
+    //ref: プログラミングコンテストチャレンジブック（蟻本）P.96
     public class DijkstraVV : SP
     {
         public DijkstraVV(int v) : base(v) { }
 
-        protected override __long__[] GetDistancesCore(int start, __long__[] dist)
+        public override __long__[] GetDistances(int start)
         {
-            var willUse = new HashSet<int>(Enumerable.Range(0, V));
+            var dist = GetInitializedDistances(start);
+            var vSet = new HashSet<int>(Enumerable.Range(0, V));
 
-            while (willUse.Count > 0)
+            while (vSet.Count > 0)
             {
-                var min = willUse.Min(wu => dist[wu]);
-                var from = willUse.First(wu => dist[wu] == min);
-                willUse.Remove(from);
-                if (dist[from] == Infinity) continue;
+                var min = vSet.Min(x => dist[x]);
+                var from = vSet.First(x => dist[x] == min);
+                vSet.Remove(from);
+                if (dist[from] == Infinity) break;
 
                 foreach (var edge in Edges[from])
                 {
