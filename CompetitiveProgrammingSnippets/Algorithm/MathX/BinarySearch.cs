@@ -24,6 +24,7 @@ namespace Algorithm.MathX
         long Left { get; set; } = 0;
         long Right { get; set; } = 0;
         bool IsOrderAscending { get; set; } = true;
+        int Sign { get { return IsOrderAscending ? 1 : -1; } }
 
         public BinarySearch<T> SetFunc(Func<long, T> func)
         {
@@ -58,14 +59,12 @@ namespace Algorithm.MathX
 
         public long LowerBound(T value)
         {
-            var sign = IsOrderAscending ? 1 : -1;
-            return BoundToTheRight(x => sign * Func(x).CompareTo(value) >= 0, Left, Right);
+            return BoundToTheRight(x => Sign * Func(x).CompareTo(value) >= 0, Left, Right);
         }
 
         public long UpperBound(T value)
         {
-            var sign = IsOrderAscending ? 1 : -1;
-            return BoundToTheRight(x => sign * Func(x).CompareTo(value) > 0, Left, Right);
+            return BoundToTheRight(x => Sign * Func(x).CompareTo(value) > 0, Left, Right);
         }
 
         public long Range(T vLeft, T vRight)
